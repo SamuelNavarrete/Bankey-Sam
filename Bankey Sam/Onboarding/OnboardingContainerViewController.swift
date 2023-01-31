@@ -34,6 +34,14 @@ class OnboardingContainerViewController: UIViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
+    
+    let closeButton : UIButton = {
+        let closeButton = UIButton(type: .system)
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        closeButton.setTitle("Close", for: [])
+        return closeButton
+    }()
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -49,8 +57,9 @@ class OnboardingContainerViewController: UIViewController {
     }
     
     func InitComponets(){
-        SetLayouyt()
         AddComponets()
+        SetLayout()
+        SetTargets()
     }
     
     
@@ -61,24 +70,41 @@ class OnboardingContainerViewController: UIViewController {
         
         pageViewController.dataSource = self
         pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(closeButton)
     }
     
 
-    func SetLayouyt(){
+    func SetLayout(){
+        
+        pageViewController.setViewControllers([pages.first!], direction: .forward, animated: false, completion: nil)
+        currentVC = pages.first!
         
         NSLayoutConstraint.activate([
             view.topAnchor.constraint(equalTo: pageViewController.view.topAnchor),
             view.leadingAnchor.constraint(equalTo: pageViewController.view.leadingAnchor),
             view.trailingAnchor.constraint(equalTo: pageViewController.view.trailingAnchor),
             view.bottomAnchor.constraint(equalTo: pageViewController.view.bottomAnchor),
+            
+            closeButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
+            closeButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2)
         ])
-        
-        pageViewController.setViewControllers([pages.first!], direction: .forward, animated: false, completion: nil)
-        currentVC = pages.first!
+
+    }
+}
+
+
+extension OnboardingContainerViewController {
+    
+    func SetTargets(){
+        closeButton.addTarget(self, action: #selector(CloseTapped), for: .primaryActionTriggered)
     }
     
-    
+    @objc func CloseTapped(sender: UIButton) {
+        //TODO
+    }
 }
+
 
 // MARK: - UIPageViewControllerDataSource
 extension OnboardingContainerViewController: UIPageViewControllerDataSource {
