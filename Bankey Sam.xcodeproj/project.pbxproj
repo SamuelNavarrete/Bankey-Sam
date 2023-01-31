@@ -12,6 +12,8 @@
 		3F7373EB2987960000B0BDE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F7373E92987960000B0BDE4 /* LaunchScreen.storyboard */; };
 		3F7373F629879DB900B0BDE4 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 3F7373F529879DB800B0BDE4 /* Readme.md */; };
 		3F7373F829879DFC00B0BDE4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7373F729879DFC00B0BDE4 /* LoginViewController.swift */; };
+		3F7373FB29886ED800B0BDE4 /* OnboardingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7373FA29886ED800B0BDE4 /* OnboardingContainerViewController.swift */; };
+		3F7373FD29889D6700B0BDE4 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7373FC29889D6700B0BDE4 /* OnboardingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		3F7373EC2987960000B0BDE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F7373F529879DB800B0BDE4 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		3F7373F729879DFC00B0BDE4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3F7373FA29886ED800B0BDE4 /* OnboardingContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerViewController.swift; sourceTree = "<group>"; };
+		3F7373FC29889D6700B0BDE4 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 		3F7373DD298795FB00B0BDE4 /* Bankey Sam */ = {
 			isa = PBXGroup;
 			children = (
+				3F7373F929886E9500B0BDE4 /* Onboarding */,
 				3F7373F22987991A00B0BDE4 /* Login */,
 				3F7373DE298795FB00B0BDE4 /* AppDelegate.swift */,
 				3F7373E72987960000B0BDE4 /* Assets.xcassets */,
@@ -70,6 +75,15 @@
 				3F7373F729879DFC00B0BDE4 /* LoginViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		3F7373F929886E9500B0BDE4 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				3F7373FC29889D6700B0BDE4 /* OnboardingViewController.swift */,
+				3F7373FA29886ED800B0BDE4 /* OnboardingContainerViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,7 +158,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F7373F829879DFC00B0BDE4 /* LoginViewController.swift in Sources */,
+				3F7373FB29886ED800B0BDE4 /* OnboardingContainerViewController.swift in Sources */,
 				3F7373DF298795FB00B0BDE4 /* AppDelegate.swift in Sources */,
+				3F7373FD29889D6700B0BDE4 /* OnboardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
