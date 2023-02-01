@@ -10,6 +10,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    weak var delgateView: LoginView?
+    
     var username: String? {
         return usernameTextField.text
     }
@@ -117,6 +119,11 @@ class LoginViewController: UIViewController {
         view.backgroundColor = UIColor(named: "ColorBackground")
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        signInButton.configuration?.showsActivityIndicator = false
+    }
+    
     
     func InitComponents(){
         AddComponets()
@@ -206,13 +213,14 @@ extension LoginViewController {
             return
         }
 
-        if username.isEmpty || password.isEmpty {
-            configureView(withMessage: "Username / password cannot be blank")
-            return
-        }
+//        if username.isEmpty || password.isEmpty {
+//            configureView(withMessage: "Username / password cannot be blank")
+//            return
+//        }
         
         if username == "" && password == "" {
             signInButton.configuration?.showsActivityIndicator = true
+            delgateView?.didLogin()
         } else {
             configureView(withMessage: "Incorrect username / password")
         }
