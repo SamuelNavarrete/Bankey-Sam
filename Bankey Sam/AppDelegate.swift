@@ -7,6 +7,8 @@
 
 import UIKit
 
+let appColor: UIColor = .systemTeal
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -15,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let loginViewController = LoginViewController()
     let onboardingViewController = OnboardingContainerViewController()
     let dummyViewController = DummyViewController()
+    let mainViewController = MainViewController()
 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {
@@ -31,10 +34,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         dummyViewController.delegateView = self
         
-        window?.rootViewController = loginViewController
+        //window?.rootViewController = mainViewController
+        window?.rootViewController = AccountSummaryViewController()
         //window?.rootViewController = OnboardingContainerViewController()
         //window?.rootViewController = OnboardingViewController(heroImageName: <#T##String#>, titleText: <#T##String#>
 
+        //Show the item of
+        //mainViewController.selectedIndex = 1
         return true
     }
 
