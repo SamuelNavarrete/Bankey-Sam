@@ -95,6 +95,7 @@ class LoginViewController: UIViewController {
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.placeholder = "Password"
         passwordTextField.isSecureTextEntry = true
+        passwordTextField.enablePasswordToggle()
         return passwordTextField
 
     }()
