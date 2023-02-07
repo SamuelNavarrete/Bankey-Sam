@@ -38,6 +38,8 @@
 		3FC375CA2991E0E300767D27 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC375C92991E0E300767D27 /* AccountModel.swift */; };
 		3FC375CE2992193700767D27 /* ProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC375CD2992193700767D27 /* ProfileTests.swift */; };
 		3FC375D0299219F600767D27 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC375CF299219F600767D27 /* AccountTests.swift */; };
+		3FC375D22992268000767D27 /* SkeletonLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC375D12992268000767D27 /* SkeletonLoadable.swift */; };
+		3FC375D4299226FB00767D27 /* SkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC375D3299226FB00767D27 /* SkeletonCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,8 @@
 		3FC375C92991E0E300767D27 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
 		3FC375CD2992193700767D27 /* ProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTests.swift; sourceTree = "<group>"; };
 		3FC375CF299219F600767D27 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
+		3FC375D12992268000767D27 /* SkeletonLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonLoadable.swift; sourceTree = "<group>"; };
+		3FC375D3299226FB00767D27 /* SkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				3F46288829905BF200B5630E /* AccountSummaryCell.swift */,
+				3FC375D12992268000767D27 /* SkeletonLoadable.swift */,
+				3FC375D3299226FB00767D27 /* SkeletonCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -421,6 +427,7 @@
 				3F4628AB2990C34100B5630E /* NSNotificationName.swift in Sources */,
 				3F73740529899AC200B0BDE4 /* DummyViewController.swift in Sources */,
 				3FC375C32991D81B00767D27 /* AccountSummaryHeaderModel.swift in Sources */,
+				3FC375D4299226FB00767D27 /* SkeletonCell.swift in Sources */,
 				3F46288929905BF200B5630E /* AccountSummaryCell.swift in Sources */,
 				3F7374022988E31A00B0BDE4 /* OnboardingProtocols.swift in Sources */,
 				3F46289829909DB600B5630E /* DecimalUtils.swift in Sources */,
@@ -433,6 +440,7 @@
 				3F462882298CB57200B5630E /* Fonts.swift in Sources */,
 				3F7373F829879DFC00B0BDE4 /* LoginViewController.swift in Sources */,
 				3F7373FB29886ED800B0BDE4 /* OnboardingContainerViewController.swift in Sources */,
+				3FC375D22992268000767D27 /* SkeletonLoadable.swift in Sources */,
 				3F7373DF298795FB00B0BDE4 /* AppDelegate.swift in Sources */,
 				3F7373FD29889D6700B0BDE4 /* OnboardingViewController.swift in Sources */,
 				3F737410298C476600B0BDE4 /* AccountSummaryViewController.swift in Sources */,
