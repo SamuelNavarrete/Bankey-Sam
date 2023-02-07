@@ -10,4 +10,11 @@ import Foundation
 
 class AccountSummaryViewModel: AccountViewModel{
     
+//    var model: DataAccountHeader
+//
+//    required init (model: DataAccountHeader = DataAccountHeader()){
+//        self.model = model
+//    }
 }
+
+

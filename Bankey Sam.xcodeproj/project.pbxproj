@@ -31,6 +31,13 @@
 		3F73740B298C33AA00B0BDE4 /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73740A298C33AA00B0BDE4 /* UIViewController+Utils.swift */; };
 		3F73740D298C34AC00B0BDE4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73740C298C34AC00B0BDE4 /* MainViewController.swift */; };
 		3F737410298C476600B0BDE4 /* AccountSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73740F298C476600B0BDE4 /* AccountSummaryViewController.swift */; };
+		3FC375C02991C5C400767D27 /* ShakeyBellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC375BF2991C5C400767D27 /* ShakeyBellView.swift */; };
+		3FC375C32991D81B00767D27 /* AccountSummaryHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC375C22991D81B00767D27 /* AccountSummaryHeaderModel.swift */; };
+		3FC375C52991DCD900767D27 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC375C42991DCD900767D27 /* Date+Utils.swift */; };
+		3FC375C82991DE4100767D27 /* AccountSummaryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC375C72991DE4100767D27 /* AccountSummaryRepository.swift */; };
+		3FC375CA2991E0E300767D27 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC375C92991E0E300767D27 /* AccountModel.swift */; };
+		3FC375CE2992193700767D27 /* ProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC375CD2992193700767D27 /* ProfileTests.swift */; };
+		3FC375D0299219F600767D27 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC375CF299219F600767D27 /* AccountTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +78,13 @@
 		3F73740A298C33AA00B0BDE4 /* UIViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
 		3F73740C298C34AC00B0BDE4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3F73740F298C476600B0BDE4 /* AccountSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryViewController.swift; sourceTree = "<group>"; };
+		3FC375BF2991C5C400767D27 /* ShakeyBellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeyBellView.swift; sourceTree = "<group>"; };
+		3FC375C22991D81B00767D27 /* AccountSummaryHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryHeaderModel.swift; sourceTree = "<group>"; };
+		3FC375C42991DCD900767D27 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
+		3FC375C72991DE4100767D27 /* AccountSummaryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryRepository.swift; sourceTree = "<group>"; };
+		3FC375C92991E0E300767D27 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
+		3FC375CD2992193700767D27 /* ProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTests.swift; sourceTree = "<group>"; };
+		3FC375CF299219F600767D27 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +132,8 @@
 			isa = PBXGroup;
 			children = (
 				3F46288F29907D8A00B5630E /* AccountSummaryModel.swift */,
+				3FC375C22991D81B00767D27 /* AccountSummaryHeaderModel.swift */,
+				3FC375C92991E0E300767D27 /* AccountModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,7 +158,8 @@
 		3F4628A02990ACC400B5630E /* BankeySamUnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				3F4628A82990ADC700B5630E /* CurrencyFormatterTests.swift */,
+				3FC375CC299218E200767D27 /* AccountSummary */,
+				3FC375CB299218BA00767D27 /* Utils */,
 			);
 			path = BankeySamUnitTests;
 			sourceTree = "<group>";
@@ -172,7 +189,9 @@
 				3F7373EC2987960000B0BDE4 /* Info.plist */,
 				3F7373DE298795FB00B0BDE4 /* AppDelegate.swift */,
 				3F73740C298C34AC00B0BDE4 /* MainViewController.swift */,
+				3FC375C62991DE2A00767D27 /* Repository */,
 				3F73740E298C472300B0BDE4 /* AccountSummary */,
+				3FC375BE2991C56100767D27 /* Components */,
 				3F46288A2990709B00B5630E /* Common */,
 				3F73740329899A9600B0BDE4 /* Dummy */,
 				3F7373F22987991A00B0BDE4 /* Login */,
@@ -228,6 +247,7 @@
 				3F46289929909E2600B5630E /* CurrencyFormatter.swift */,
 				3F4628AA2990C34100B5630E /* NSNotificationName.swift */,
 				3F4628AC2991A28700B5630E /* UITextField+SecureToggle.swift */,
+				3FC375C42991DCD900767D27 /* Date+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -248,6 +268,39 @@
 				3F46288E29907D0700B5630E /* Model */,
 				3F462891299082D400B5630E /* View */,
 				3F462892299082DF00B5630E /* ViewModel */,
+			);
+			path = AccountSummary;
+			sourceTree = "<group>";
+		};
+		3FC375BE2991C56100767D27 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3FC375BF2991C5C400767D27 /* ShakeyBellView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		3FC375C62991DE2A00767D27 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				3FC375C72991DE4100767D27 /* AccountSummaryRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		3FC375CB299218BA00767D27 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3F4628A82990ADC700B5630E /* CurrencyFormatterTests.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		3FC375CC299218E200767D27 /* AccountSummary */ = {
+			isa = PBXGroup;
+			children = (
+				3FC375CD2992193700767D27 /* ProfileTests.swift */,
+				3FC375CF299219F600767D27 /* AccountTests.swift */,
 			);
 			path = AccountSummary;
 			sourceTree = "<group>";
@@ -355,6 +408,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F4628A92990ADC700B5630E /* CurrencyFormatterTests.swift in Sources */,
+				3FC375D0299219F600767D27 /* AccountTests.swift in Sources */,
+				3FC375CE2992193700767D27 /* ProfileTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,11 +420,14 @@
 				3F4628AD2991A28700B5630E /* UITextField+SecureToggle.swift in Sources */,
 				3F4628AB2990C34100B5630E /* NSNotificationName.swift in Sources */,
 				3F73740529899AC200B0BDE4 /* DummyViewController.swift in Sources */,
+				3FC375C32991D81B00767D27 /* AccountSummaryHeaderModel.swift in Sources */,
 				3F46288929905BF200B5630E /* AccountSummaryCell.swift in Sources */,
 				3F7374022988E31A00B0BDE4 /* OnboardingProtocols.swift in Sources */,
 				3F46289829909DB600B5630E /* DecimalUtils.swift in Sources */,
 				3F46289029907D8A00B5630E /* AccountSummaryModel.swift in Sources */,
+				3FC375C52991DCD900767D27 /* Date+Utils.swift in Sources */,
 				3F73740B298C33AA00B0BDE4 /* UIViewController+Utils.swift in Sources */,
+				3FC375C02991C5C400767D27 /* ShakeyBellView.swift in Sources */,
 				3F462896299085AA00B5630E /* AccountSummaryProtocols.swift in Sources */,
 				3F7373FF2988DD7200B0BDE4 /* LoginViewProtocols.swift in Sources */,
 				3F462882298CB57200B5630E /* Fonts.swift in Sources */,
@@ -379,6 +437,8 @@
 				3F7373FD29889D6700B0BDE4 /* OnboardingViewController.swift in Sources */,
 				3F737410298C476600B0BDE4 /* AccountSummaryViewController.swift in Sources */,
 				3F46289A29909E2600B5630E /* CurrencyFormatter.swift in Sources */,
+				3FC375CA2991E0E300767D27 /* AccountModel.swift in Sources */,
+				3FC375C82991DE4100767D27 /* AccountSummaryRepository.swift in Sources */,
 				3F737408298ADF6500B0BDE4 /* LocalState.swift in Sources */,
 				3F73740D298C34AC00B0BDE4 /* MainViewController.swift in Sources */,
 				3F4628942990833500B5630E /* AccountSummaryViewModel.swift in Sources */,

@@ -9,3 +9,8 @@ import Foundation
 
 protocol AccountViewModel {
 }
+
+protocol AccountDetailViewModel{
+    var model: DataAccountHeader { set get }
+
+}

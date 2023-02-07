@@ -17,9 +17,29 @@ class AccountSummaryViewController: UIViewController{
 //    ]
     //var viewModel: AccountSummaryViewModel?
 
+    var accounts: [Account] = []
     
-    var accounts: [AccountSumary] = []
+    let shakeyBellView = ShakeyBellView()
     
+    var accountsDataCell: [AccountSumary] = []
+    
+    var headerViewModel = DataAccountHeader(welcomeMessage: "Welcome", name: "", date: Date())
+    
+    var dataHeader : DataAccountHeader?
+    var profile : Profile?
+    
+    var accountSummaryRepositoryImpl = AccountSummaryRepositoryImpl()
+    
+    
+    
+    var header = UIView(frame: .zero)
+    let stack = UIStackView()
+    let BankeyLabel = UILabel ()
+    let GreetingLabel = UILabel ()
+    let NameLabel = UILabel ()
+    let DateLabel = UILabel ()
+
+
     lazy var logoutBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
         barButtonItem.tintColor = .label
@@ -53,7 +73,8 @@ class AccountSummaryViewController: UIViewController{
         AddComponets()
         SetLayout()
         setupTableHeaderView()
-        FetchData()
+        //FetchAccounts()
+        FetchDataAndLoadViews()
         setupNavigationBar()
     }
     
@@ -79,23 +100,21 @@ class AccountSummaryViewController: UIViewController{
     }
     
     
-    
-    
-    private let stackContainerHeader : UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.distribution = .fillProportionally
-        stack.alignment = .top
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        return stack
-    }()
+//    private let stackContainerHeader : UIStackView = {
+//        let stack = UIStackView()
+//        stack.axis = .vertical
+//        stack.distribution = .fillProportionally
+//        stack.alignment = .top
+//        stack.translatesAutoresizingMaskIntoConstraints = false
+//        return stack
+//    }()
     
     
     private let stackContainerOfStack : UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
-        //stack.distribution = .fillProportionally
-        //stack.alignment = .fill
+        stack.distribution = .fillProportionally
+        stack.alignment = .top
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -108,7 +127,7 @@ class AccountSummaryViewController: UIViewController{
     }()
     
     private func setupTableHeaderView() {
-        let header = UIView(frame: .zero)
+        
         //header.frame.size.width = UIScreen.main.bounds.width
         header.frame.size.height = 150
         header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
@@ -118,24 +137,30 @@ class AccountSummaryViewController: UIViewController{
         
         header.addSubview(stackContainerOfStack)
         
-        stackContainerOfStack.addArrangedSubview(stackContainerHeader)
+        //stackContainerOfStack.addArrangedSubview(stackContainerHeader)
+        stackContainerOfStack.addArrangedSubview(stack)
         stackContainerOfStack.addArrangedSubview(Image)
         
+        header.addSubview(shakeyBellView)
         
-        
+        shakeyBellView.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
             
 //            Image.widthAnchor.constraint(equalToConstant: 100),
 //            Image.heightAnchor.constraint(equalToConstant: 100),
-//
-            
+
             stackContainerOfStack.topAnchor.constraint(equalTo: header.topAnchor, constant: 10),
             stackContainerOfStack.leadingAnchor.constraint(equalTo: header.leadingAnchor, constant: 10),
             stackContainerOfStack.trailingAnchor.constraint(equalTo: header.trailingAnchor, constant: -10),
-            stackContainerOfStack.bottomAnchor.constraint(equalTo: header.bottomAnchor, constant: -10)
+            stackContainerOfStack.bottomAnchor.constraint(equalTo: header.bottomAnchor, constant: -10),
+            
+            
+            shakeyBellView.trailingAnchor.constraint(equalTo: header.trailingAnchor),
+            shakeyBellView.bottomAnchor.constraint(equalTo: header.bottomAnchor)
         ])
         
-        createList()
+        HeaderTableView()
     }
     
     
@@ -144,16 +169,16 @@ class AccountSummaryViewController: UIViewController{
 extension AccountSummaryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard !accounts.isEmpty else { return UITableViewCell() }
+        guard !accountsDataCell.isEmpty else { return UITableViewCell() }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.reuseID, for: indexPath) as! AccountSummaryCell
-        let account = accounts[indexPath.row]
+        let account = accountsDataCell[indexPath.row]
         cell.configure(with: account)
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return accounts.count
+        return accountsDataCell.count
     }
 }
 
@@ -172,58 +197,67 @@ extension AccountSummaryViewController: UITableViewDelegate {
 
 extension AccountSummaryViewController{
     
-    func createList() {
-        let ListData : [UIView] = []
+    func HeaderTableView()  {
         
-        var views: [()] = ListData.map{_ in listView(text: "", namefont: "", size: 0)}
-
-        //ListData.insert(listView(text: "Paga desde cualquier lugar."), at: data.startIndex)
-        views.append(listView(text: "Bankey", namefont: "Title 1", size: 30))
-        views.append(listView(text: "Good morning,", namefont: "Title 3", size: 20))
-        views.append(listView(text: "Jonathan", namefont: "Title 3", size: 20))
-        views.append(listView(text: "Date", namefont: "Subhead", size: 20))
-//        views.append(listView(text: "Sin costo de comisión."))
-    }
-    
-    func listView(text: String, namefont: String, size: CGFloat)  {
-        let stack = UIStackView()
         stack.axis = .vertical
         stack.distribution = .fillProportionally
-//        stack.alignment = .fill
+        stack.alignment = .fill
         stack.spacing = 0
         
-        let DataLabel = UILabel ()
-        DataLabel.text = text
-        DataLabel.numberOfLines = 0
-        //DataLabel.font = Fonts.SFProBook.of(size: size)
-        //DataLabel.font = UIFont(name: namefont, size: size - 1)
-        DataLabel.font = GetType(size: size - 1, TypeFont: namefont)
+        BankeyLabel.numberOfLines = 0
+        BankeyLabel.font = GetType(size: 30 - 1, TypeFont: "Title 1")
+        BankeyLabel.text = "Bankey"
         
-        stack.addArrangedSubview(DataLabel)
+        GreetingLabel.numberOfLines = 0
+        GreetingLabel.font = GetType(size: 20 - 1, TypeFont: "Title 3")
+        GreetingLabel.text = "Good morni"
+
         
-        stackContainerHeader.addArrangedSubview(stack)
+        NameLabel.numberOfLines = 0
+        NameLabel.font = GetType(size: 20 - 1, TypeFont: "Title 3")
+        NameLabel.text = "Stevie"
+
+        
+        DateLabel.numberOfLines = 0
+        DateLabel.font = GetType(size: 20 - 1, TypeFont: "Subhead")
+        DateLabel.text = "Date"
+
+        
+        stack.addArrangedSubview(BankeyLabel)
+        stack.addArrangedSubview(GreetingLabel)
+        stack.addArrangedSubview(NameLabel)
+        stack.addArrangedSubview(DateLabel)
     }
+    
+    
+    func configure(dataAccount: DataAccountHeader) {
+            self.GreetingLabel.text = dataAccount.welcomeMessage
+            self.NameLabel.text = dataAccount.name
+            self.DateLabel.text = dataAccount.dateFormatted
+    }
+    
 }
 
 
-extension AccountSummaryViewController {
-    private func FetchData() {
-        
-        let savings = AccountSumary(accountType: .Banking,accountName: "Basic Savings", balance: 929466.23)
-        let chequing = AccountSumary(accountType: .Banking, accountName: "No-Fee All-In Chequing", balance: 17562.44)
-        let visa = AccountSumary(accountType: .CreditCard,accountName: "Visa Avion Card", balance: 412.83)
-        let masterCard = AccountSumary(accountType: .CreditCard, accountName: "Student Mastercard", balance: 50.83)
-        let investment1 = AccountSumary(accountType: .Investment, accountName: "Tax-Free Saver", balance: 2000.00)
-        let investment2 = AccountSumary(accountType: .Investment,accountName: "Growth Fund", balance: 15000.00)
-
-        accounts.append(savings)
-        accounts.append(chequing)
-        accounts.append(visa)
-        accounts.append(masterCard)
-        accounts.append(investment1)
-        accounts.append(investment2)
-    }
-}
+//extension AccountSummaryViewController {
+//
+//    private func FetchAccounts() {
+//
+//        let savings = AccountSumary(accountType: .Banking,accountName: "Basic Savings", balance: 929466.23)
+//        let chequing = AccountSumary(accountType: .Banking, accountName: "No-Fee All-In Chequing", balance: 17562.44)
+//        let visa = AccountSumary(accountType: .CreditCard,accountName: "Visa Avion Card", balance: 412.83)
+//        let masterCard = AccountSumary(accountType: .CreditCard, accountName: "Student Mastercard", balance: 50.83)
+//        let investment1 = AccountSumary(accountType: .Investment, accountName: "Tax-Free Saver", balance: 2000.00)
+//        let investment2 = AccountSumary(accountType: .Investment,accountName: "Growth Fund", balance: 15000.00)
+//
+//        accountsDataCell.append(savings)
+//        accountsDataCell.append(chequing)
+//        accountsDataCell.append(visa)
+//        accountsDataCell.append(masterCard)
+//        accountsDataCell.append(investment1)
+//        accountsDataCell.append(investment2)
+//    }
+//}
 
 
 extension AccountSummaryViewController {
@@ -234,4 +268,51 @@ extension AccountSummaryViewController {
     @objc func logoutTapped(sender: UIButton){
         NotificationCenter.default.post(name: .logout, object: nil)
     }
+}
+
+
+
+
+
+// MARK: - Networking
+extension AccountSummaryViewController {
+    private func FetchDataAndLoadViews() {
+        
+        accountSummaryRepositoryImpl.fetchProfile(forUserId: "1") { result in
+            switch result {
+            case .success(let profile):
+                self.profile = profile
+                self.configureTableHeaderView(with: profile)
+                self.tableView.reloadData()
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+
+        accountSummaryRepositoryImpl.fetchAccounts(forUserId: "1") { result in
+            switch result {
+            case .success(let accounts):
+                self.accounts = accounts
+                self.configureTableCells(with: accounts)
+                self.tableView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func configureTableHeaderView(with profile: Profile) {
+        let vm = DataAccountHeader(welcomeMessage: "Good morning,", name: profile.firstName, date: Date())
+        configure(dataAccount: vm)
+    }
+    
+    private func configureTableCells(with accounts: [Account]) {
+        accountsDataCell = accounts.map {
+            AccountSumary(accountType: $0.type,
+                          accountName: $0.name,
+                          balance: $0.amount)
+        }
+    }
+    
 }
