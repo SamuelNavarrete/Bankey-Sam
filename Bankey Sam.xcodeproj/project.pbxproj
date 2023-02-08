@@ -40,6 +40,7 @@
 		3FC375D0299219F600767D27 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC375CF299219F600767D27 /* AccountTests.swift */; };
 		3FC375D22992268000767D27 /* SkeletonLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC375D12992268000767D27 /* SkeletonLoadable.swift */; };
 		3FC375D4299226FB00767D27 /* SkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC375D3299226FB00767D27 /* SkeletonCell.swift */; };
+		3FC375D62993332000767D27 /* AccountSummaryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC375D52993332000767D27 /* AccountSummaryViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		3FC375CF299219F600767D27 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		3FC375D12992268000767D27 /* SkeletonLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonLoadable.swift; sourceTree = "<group>"; };
 		3FC375D3299226FB00767D27 /* SkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCell.swift; sourceTree = "<group>"; };
+		3FC375D52993332000767D27 /* AccountSummaryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +309,7 @@
 			children = (
 				3FC375CD2992193700767D27 /* ProfileTests.swift */,
 				3FC375CF299219F600767D27 /* AccountTests.swift */,
+				3FC375D52993332000767D27 /* AccountSummaryViewControllerTests.swift */,
 			);
 			path = AccountSummary;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				3F4628A92990ADC700B5630E /* CurrencyFormatterTests.swift in Sources */,
 				3FC375D0299219F600767D27 /* AccountTests.swift in Sources */,
 				3FC375CE2992193700767D27 /* ProfileTests.swift in Sources */,
+				3FC375D62993332000767D27 /* AccountSummaryViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

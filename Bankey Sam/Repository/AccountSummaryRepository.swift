@@ -8,7 +8,12 @@
 import Foundation
 import UIKit
 
-class AccountSummaryRepositoryImpl {
+protocol ProfileManageable: AnyObject {
+    func fetchProfile(forUserId userId: String, completion: @escaping (Result<Profile,NetworkError>) -> Void)
+    func fetchAccounts(forUserId userId: String, completion: @escaping (Result<[Account],NetworkError>) -> Void)
+}
+
+class AccountSummaryRepositoryImpl: ProfileManageable {
     func fetchProfile(forUserId userId: String, completion: @escaping (Result<Profile,NetworkError>) -> Void) {
         let url = URL(string: "https://fierce-retreat-36855.herokuapp.com/bankey/profile/\(userId)")!
         

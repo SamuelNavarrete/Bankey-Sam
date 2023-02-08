@@ -50,6 +50,6 @@ class AccountTests: XCTestCase {
         XCTAssertEqual(account1.type, .Banking)
         XCTAssertEqual(account1.name, "Basic Savings")
         XCTAssertEqual(account1.amount, 929466.23)
-        XCTAssertEqual(account1.createdDateTime.monthDayYearString, "Jun 21, 2010")
+        XCTAssertEqual(account1.createdDateTime.monthDayYearString, "jun. 21, 2010")
     }
 }
