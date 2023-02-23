@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+//Protocol
 protocol ProfileManageable: AnyObject {
     func fetchProfile(forUserId userId: String, completion: @escaping (Result<Profile,NetworkError>) -> Void)
     func fetchAccounts(forUserId userId: String, completion: @escaping (Result<[Account],NetworkError>) -> Void)
