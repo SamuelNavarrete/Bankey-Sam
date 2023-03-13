@@ -56,6 +56,7 @@
 /* Begin PBXFileReference section */
 		3F439A1F29A5D71C00F9CA1D /* QA.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = QA.xcconfig; sourceTree = "<group>"; };
 		3F439A2029A5D83900F9CA1D /* DEV.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DEV.xcconfig; sourceTree = "<group>"; };
+		3F439A2129A7FEFB00F9CA1D /* PROD.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = PROD.xcconfig; sourceTree = "<group>"; };
 		3F462881298CB57200B5630E /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		3F46288829905BF200B5630E /* AccountSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryCell.swift; sourceTree = "<group>"; };
 		3F46288F29907D8A00B5630E /* AccountSummaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryModel.swift; sourceTree = "<group>"; };
@@ -177,6 +178,7 @@
 		3F7373D2298795FB00B0BDE4 = {
 			isa = PBXGroup;
 			children = (
+				3F439A2129A7FEFB00F9CA1D /* PROD.xcconfig */,
 				3F439A2029A5D83900F9CA1D /* DEV.xcconfig */,
 				3F439A1F29A5D71C00F9CA1D /* QA.xcconfig */,
 				3F7373DD298795FB00B0BDE4 /* Bankey Sam */,
